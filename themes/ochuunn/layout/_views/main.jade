@@ -1,0 +1,35 @@
+doctype html
+html(lang="zh-CN")
+  head
+    include head
+  body(style="opacity:0")
+    header.head
+      if page.archive
+        h1.head-title.u-fl: a(href = config.root)
+          = '首页'
+        span.u-fl &nbsp;&nbsp;
+        h3.head-title: a(href = config.root + 'archives/')
+          = '>> 目录'
+      else if page.tag
+        h1.head-title.u-fl: a(href = config.root)
+          = '首页'
+        span.u-fl &nbsp;&nbsp;
+        h3.head-title: a(href = config.root + 'tags/' + page.tag + '/')
+          = '>> 标签: ' + page.tag
+      else
+        h1.head-title.u-fl: a(href = config.root)
+          = config.title
+
+      include nav
+      
+    main.main
+      block main
+    
+    footer.foot
+      div.foot-copy.u-fl
+        span
+          = '©' + date(new Date(), 'YYYY') + ' '
+        a(href = config.github)
+          = (config.author || config.title)
+      block menu
+    include foot
