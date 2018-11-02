@@ -41,7 +41,3 @@ mixin post(post, index)
             li.post__tag__item: a.post__tag__link(href = config.root + tag.path)
               = tag.name
           -})
-
-    if index !== 'archive'
-      != css('//lvwenhan.com:8000/css/static')
-      div#comments
