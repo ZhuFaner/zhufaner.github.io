@@ -1,6 +1,8 @@
 ---
 title: Carthage 杂谈
 date: 2018-11-20 18:47:30
+author: 张智杰
+author_url: https://github.com/zzjzz9266a
 tags: 
 - iOS 
 - framework 

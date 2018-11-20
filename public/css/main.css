@@ -804,6 +804,7 @@ h3.head-title {
   font-size: 1.2rem;
 }
 .post__main img {
+  display: block;
   margin: 1.6em auto;
 }
 .post__foot {
@@ -1041,6 +1042,9 @@ h3.head-title {
   .post__main .highlight {
     margin: 30px -20px;
     padding: 20px;
+  }
+  .post__main img {
+    margin: 0 auto;
   }
   .post__foot {
     position: relative;
