@@ -10,7 +10,7 @@ favicon: /favicon.ico
 date_format: 'MMMM D, YYYY'
 
 google_verification: false  # your token
-google_analytics: UA-56273324-3     # your id
+google_analytics: false     # your id
 
 disqus_shortname: zhu-fan-er-ji-zhu-tuan-dui     # your disqus name
 
