@@ -1,12 +1,12 @@
----
 title: Carthage 杂谈
-date: 2018-11-20 18:47:30
 author: 张智杰
-author_url: https://github.com/zzjzz9266a
-tags: 
-- iOS 
-- framework 
-- carthage
+author_url: 'https://github.com/zzjzz9266a'
+tags:
+  - iOS
+  - framework
+  - carthage
+categories: []
+date: 2018-11-20 18:47:00
 ---
 
 我将从 `Xcode` 工程项目的结构出发，一步步解释 `CocoaPods` 的工作原理，最后教大家怎样让自己的项目支持 `Carthage`。
