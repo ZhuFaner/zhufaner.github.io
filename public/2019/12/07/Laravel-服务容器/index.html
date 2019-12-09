@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="Tech Team of Zhufaner Inc."><meta name="description" conauthortent="住范儿技术团队博客"><link rel="alternative" href="/atom.xml" title="住范儿技术团队" type="application/atom+xml"><link rel="icon" href="/favicon.ico"><title>Laravel 服务容器 - 住范儿技术团队</title><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/js/fancybox/jquery.fancybox.min.css"><!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--><script src="/js/jquery-3.1.1.min.js"></script><script src="/js/fancybox/jquery.fancybox.min.js"></script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-99090733-1', 'auto');ga('send', 'pageview');
+</script><!-- Hotjar Tracking Code for ochukai.me --></head><body style="opacity:0"><header class="head"><h1 class="head-title u-fl"><a href="/">住范儿技术团队</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a href="/archives" class="head-nav__link">目录</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head">  <time datetime="2019-12-07T08:14:00.000Z" class="post__time">十二月 7, 2019<a class="author">作者：吉鹏</a></time><h1 class="post__title">Laravel 服务容器</h1><div class="post__main echo"><h1 id="Laravel-核心核心之一服务容器"><a href="#Laravel-核心核心之一服务容器" class="headerlink" title="Laravel 核心核心之一服务容器"></a>Laravel 核心核心之一服务容器</h1><p>编程思想都是由某种语言的基础用法实现的，编程语言是将思想落地的工具。思想重点考虑的是架构稳定、逻辑缜密；语言实现重点考虑的是方方面面的细节和性能问题。</p>
+<p>各种编程思想的存在主要是为了实现程序的高内聚、低耦合、易扩展等特性。</p>
+<h2 id="服务容器"><a href="#服务容器" class="headerlink" title="服务容器"></a>服务容器</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p> IoC - Inversion of Control  控制反转<br> DI  - Dependency Injection  依赖注入 </p>
+<h4 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h4><ol>
+<li><p>类(A)中依赖类(C)<br><img src="/assets/e68f5f01f8bc8bc218835dedd13d21b4.png" alt></p>
+</li>
+<li><p>使用容器控制反转/依赖注入<br><img src="/assets/add1c64b2fa3857d6ed875b9cf10221f.png" alt></p>
+</li>
+</ol>
+<ul>
+<li>服务容器和工厂类有些相似</li>
+<li>本质上来说，依赖注入和控制反转是对同一件事情的不同描述。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">依赖注入是从应用程序的角度在描述，可以把依赖注入，即：应用程序依赖容器创建并注入它所需要的外部资源；</span><br><span class="line">控制反转是从容器的角度在描述，即：容器控制应用程序，由容器反向的向应用程序注入应用程序所需要的外部资源</span><br></pre></td></tr></table></figure>
+
+<h3 id="Laravel服务容器"><a href="#Laravel服务容器" class="headerlink" title="Laravel服务容器"></a>Laravel服务容器</h3><p>用于管理类依赖和执行依赖注入的工具，主要的两个作用就是：绑定和解析。<br><img src="/assets/a533558168b620174c7653a8cdd6135d.png" alt></p>
+<h3 id="绑定"><a href="#绑定" class="headerlink" title="绑定"></a>绑定</h3><p>将接口类与实现类在容器中建立对应关系，laravel中有很多种类型的绑定，ex：普通绑定、单例绑定、上下文绑定等等。此处只简单梳理bind函数的流程，其他情况大致相仿；<br><img src="/assets/31af30eae2ba3460e45a6491cf4394cf.png" alt></p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>就是从容器中获取类实例，和绑定是一个相反的操作。<br><img src="/assets/796d9d5a810b0dbeaaf7af93271c64e1.png" alt></p>
+<h1 id="Laravel相关说明"><a href="#Laravel相关说明" class="headerlink" title="Laravel相关说明"></a>Laravel相关说明</h1><ol>
+<li>laravel服务容器是一个升级版的工厂类，非常灵活、巧妙的处理依赖和注入问题，减少了系统的耦合；</li>
+<li>laravel服务容器维护了别名、回调等多种功能，所以在追laravel源码的时候需要分清主次，否则容易迷失在laravel的源码之中。</li>
+<li>make和bind有些模糊，可以下载后放大看</li>
+</ol>
+</div></header><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/laravel/" class="post__tag__link">laravel</a></li><li class="post__tag__item"><a href="/tags/服务容器/" class="post__tag__link">服务容器</a></li><li class="post__tag__item"><a href="/tags/php依赖/" class="post__tag__link">php依赖</a></li></ul></footer></article><div class="comments"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript></div></div></main><footer class="foot"><div class="foot-copy u-fl"><span>©2019 </span><a href="https://github.com/zhufaner">Tech Team of Zhufaner Inc.</a></div><menu class="page-menu u-fr"><li class="page-menu__item"><span title="Previous" class="page-menu__link icon-arrow-left page-menu__link--disabled"></span></li><li class="page-menu__item"><a title="Next" href="/2019/12/06/laravel-广播和事件/" class="page-menu__link icon-arrow-right"></a></li></menu></footer><script>(function(h,g,l,k,j,i){j=h.createElement(g),i=h.getElementsByTagName(g)[0],j.src="//"+l+".disqus.com/"+k+".js",i.parentNode.insertBefore(j,i)})(document,"script","zhu-fan-er-ji-zhu-tuan-dui","embed");
+</script><div style="display: none;"><script src="https://s4.cnzz.com/z_stat.php?id=1261929418&web_id=1261929418" language="JavaScript"></script></div><script src="/js/scroller.js"></script><script src="/js/main.js"></script></body></html>
